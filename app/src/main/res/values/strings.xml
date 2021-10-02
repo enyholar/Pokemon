@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ZapMap</string>
+    <string name="welcome_to_zapmap">Welcome To ZapMap</string>
 </resources>

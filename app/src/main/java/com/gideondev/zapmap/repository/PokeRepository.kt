@@ -5,9 +5,10 @@ import com.gideondev.zapmap.network.PokeApiInterface
 
 
 class PokeRepository(
-    private val fillItApiInterface: PokeApiInterface
+    private val pokeApiInterface: PokeApiInterface
 ){
 
-  //  fun loginUser(request: LoginRequest) = fillItApiInterface.loginUser(request)
+    fun getPokemonList(offset: Int, limit: Int) = pokeApiInterface.getPokemonList(offset, limit)
+    fun getPokemonDetails(id: Int) = pokeApiInterface.getPokemonDetails(id)
 
 }

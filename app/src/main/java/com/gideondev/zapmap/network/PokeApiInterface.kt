@@ -1,15 +1,24 @@
 package com.gideondev.zapmap.network
+import com.gideondev.zapmap.model.PokeMonListResponse
+import com.gideondev.zapmap.model.details.PokemonDetailsResponse
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.*
 
 
 interface PokeApiInterface {
 
-//    @GET("/users/{user}")
-//    fun getUser(
-//        @Path("user") userId: String
-//    ): Observable<RegisterResponse>
+    @GET("pokemon")
+    fun getPokemonList(
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int,
+
+    ): Observable<PokeMonListResponse>
+
+    @GET("pokemon/{id}")
+    fun getPokemonDetails(
+        @Path("id") id: Int,
+
+    ): Observable<PokemonDetailsResponse>
 
 //    @POST("register")
 //    fun registerUser(

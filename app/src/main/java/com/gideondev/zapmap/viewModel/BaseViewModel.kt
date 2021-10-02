@@ -2,6 +2,8 @@ package com.gideondev.zapmap.viewModel
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.gideondev.zapmap.model.PokeMonListResponse
+import com.gideondev.zapmap.model.details.PokemonDetailsResponse
 import io.reactivex.disposables.CompositeDisposable
 
 
@@ -13,22 +15,8 @@ open class BaseViewModel : ViewModel() {
     val dataLoaded: ObservableField<Boolean> = ObservableField()
     val isLoading: MutableLiveData<Boolean?> = MutableLiveData()
     val errorMessage: MutableLiveData<String?> = MutableLiveData()
-  //  val user: MutableLiveData<User?> = MutableLiveData()
-//    val registerResponse: MutableLiveData<RegisterResponse?> = MutableLiveData()
-//    val loginResponse: MutableLiveData<LoginResponse?> = MutableLiveData()
-//    val userResponse: MutableLiveData<UserBioResponse?> = MutableLiveData()
-//    val allFoodMenuResponse: MutableLiveData<AllFoodMenuResponse?> = MutableLiveData()
-//    val allFoodStoreResponse: MutableLiveData<AllFoodStoreResponse?> = MutableLiveData()
-//    val allVendorCategoryResponse: MutableLiveData<List<VendorCategoryItem>?> = MutableLiveData()
-//    val featureMenuResponse: MutableLiveData<FeatureMenuResponse?> = MutableLiveData()
-//    val vendorDetailResponse: MutableLiveData<VendorDetailResponse?> = MutableLiveData()
-//    val menuResponse: MutableLiveData<MenuResponse?> = MutableLiveData()
-//    val vendorByCategoryIdResponse: MutableLiveData<MutableList<VendorByCategoryItem>?> = MutableLiveData()
-//    val userOrderedByIdResponse: MutableLiveData<UserOrderedFoodResponse> = MutableLiveData()
-//    val successResponse: MutableLiveData<SuccessResponse> = MutableLiveData()
-//    val drinkCategoriesResponse: MutableLiveData<DrinkCategoriesResponse> = MutableLiveData()
-//    val drinkResponse: MutableLiveData<DrinkResponse> = MutableLiveData()
-//    val changePasswordResponse: MutableLiveData<ForgotPasswordResponse> = MutableLiveData()
+    val pokeMonListResponse: MutableLiveData<PokeMonListResponse?> = MutableLiveData()
+    val pokemonDetailsResponse: MutableLiveData<PokemonDetailsResponse?> = MutableLiveData()
 
 
     protected var disposable: CompositeDisposable = CompositeDisposable()

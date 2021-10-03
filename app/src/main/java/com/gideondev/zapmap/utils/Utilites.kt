@@ -29,6 +29,14 @@ fun View.snackbar(message: String) {
     }.show()
 }
 
+private fun capitizeString(name: String): String? {
+    var captilizedString = ""
+    if (name.trim { it <= ' ' } != "") {
+        captilizedString = name.substring(0, 1).toUpperCase() + name.substring(1)
+    }
+    return captilizedString
+}
+
 fun String.isValidatePassword(password: String):Boolean {
     val pattern: Pattern
     val matcher: Matcher

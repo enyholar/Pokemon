@@ -15,7 +15,6 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         configureDagger()
         configureDesign()
-   //     onBackPressed()
     }
     private fun configureDagger() = (this.application as BaseApplication).appComponent.inject(this)
 

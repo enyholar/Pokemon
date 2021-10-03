@@ -18,6 +18,9 @@ class PokemonDetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_pokemon_details)
+        binding.imgBack.setOnClickListener{
+            finish()
+        }
     }
 
 
@@ -54,8 +57,8 @@ class PokemonDetailsActivity : BaseActivity() {
     }
 
     fun setValueToView(model: PokemonDetailsResponse){
-        binding.txtHeight.text = model.height.toString()
-        binding.txtWeight.text = model.weight.toString()
+        binding.txtHeight.text = model.height.toString() + " cm"
+        binding.txtWeight.text = model.weight.toString() + " kg"
         binding.txtPokeName.text = model.name.toString()
         val abilitiesList: MutableList<String> = ArrayList<String>()
         val speciesList: MutableList<String> = ArrayList<String>()

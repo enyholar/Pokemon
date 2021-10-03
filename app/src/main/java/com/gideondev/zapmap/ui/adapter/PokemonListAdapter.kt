@@ -19,6 +19,7 @@ import com.gideondev.zapmap.model.Pokemon
 import com.gideondev.zapmap.utils.IMG_BASE_URL
 import com.gideondev.zapmap.utils.VIEW_TYPE_ITEM
 import com.gideondev.zapmap.utils.VIEW_TYPE_LOADING
+import java.util.*
 
 
 class PokemonListAdapter(
@@ -26,11 +27,6 @@ class PokemonListAdapter(
     private val listner: ClickListner
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     lateinit var mcontext: Context
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val inflater = LayoutInflater.from(parent.context)
-//        val binding = ItemPokeViewBinding.inflate(inflater)
-//        return ViewHolder(binding)
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         mcontext = parent.context
@@ -69,9 +65,10 @@ class PokemonListAdapter(
     class ItemViewHolder(val binding: ItemPokeViewBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: Pokemon?, position: Int) {
             with(binding) {
-                binding.txtPokeName.text = item?.name ?: ""
-                binding.txtPokeUrl.text = item?.url ?: ""
+                val name = item?.name ?: ""
+                binding.txtPokeName.text = name.capitalized()
                 val imgNum = position + 1
+                binding.txtPokeUrl.text = "#" + imgNum
                 val media = "$IMG_BASE_URL$imgNum.png"
                         Glide.with(binding.imgPokemon .context)
                             .load(media)
@@ -79,7 +76,17 @@ class PokemonListAdapter(
                             .into(binding.imgPokemon)
             }
         }
+
+        fun String.capitalized(): String {
+            return this.replaceFirstChar {
+                if (it.isLowerCase())
+                    it.titlecase(Locale.getDefault())
+                else it.toString()
+            }
+        }
     }
+
+
 
     class LoadingViewHolder(itemView: ItemProgressLoadingBinding) : RecyclerView.ViewHolder(itemView.root)
 
@@ -108,29 +115,6 @@ class PokemonListAdapter(
             items.removeAt(position)
         }
         notifyItemRemoved(position)
-    }
-
-//    override fun onBindViewHolder(
-//        holder: ViewHolder,
-//        position: Int
-//    ) {
-//        val model: Pokemon? = items!![position]
-//
-//        holder.itemView .setOnClickListener(View.OnClickListener {
-//            listner.onItemClick(model)
-//        })
-//        holder.bind(model)
-//    }
-
-    inner class ViewHolder(val binding: ItemPokeViewBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Pokemon?) {
-            with(binding) {
-              binding.txtPokeName.text = item?.name ?: ""
-                binding.txtPokeUrl.text = item?.url ?: ""
-
-            }
-        }
-
     }
 
     interface ClickListner {

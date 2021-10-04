@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ZapMap</string>
     <string name="welcome_to_zapmap">Welcome To ZapMap</string>
+    <string name="types">Types</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="abilities">Abilities</string>
 </resources>

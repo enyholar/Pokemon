@@ -11,8 +11,11 @@ import com.gideondev.zapmap.databinding.ActivityPokemonDetailsBinding
 import com.gideondev.zapmap.model.Pokemon
 import com.gideondev.zapmap.model.details.PokemonDetailsResponse
 import com.gideondev.zapmap.viewModel.PokeViewModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PokemonDetailsActivity : BaseActivity() {
+    private var pokemonId: Int = 0
     private lateinit var binding: ActivityPokemonDetailsBinding
     lateinit var viewModel: PokeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +29,7 @@ class PokemonDetailsActivity : BaseActivity() {
 
     override fun configureDesign() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(PokeViewModel::class.java)
-        val  pokemonId = intent.getIntExtra("id",0)
+        pokemonId = intent.getIntExtra("id",0)
         observeData()
         fetchPokemonDetails(pokemonId + 1)
     }
@@ -59,7 +62,9 @@ class PokemonDetailsActivity : BaseActivity() {
     fun setValueToView(model: PokemonDetailsResponse){
         binding.txtHeight.text = model.height.toString() + " cm"
         binding.txtWeight.text = model.weight.toString() + " kg"
-        binding.txtPokeName.text = model.name.toString()
+        binding.txtPokeName.text = model.name.capitalized()
+        val num = pokemonId + 1
+        binding.txtPokeNum.text = "#"+num
         val abilitiesList: MutableList<String> = ArrayList<String>()
         val speciesList: MutableList<String> = ArrayList<String>()
 
@@ -73,10 +78,20 @@ class PokemonDetailsActivity : BaseActivity() {
         val species = speciesList.joinToString(separator = ",")
         binding.txtAbilities.text = ability
         binding.txtSpecies.text = species
+
+
         Glide.with(binding.imgPokeMan .context)
             .load(model.sprites.front_default)
             .centerCrop()
             .into(binding.imgPokeMan)
+    }
+
+    fun String.capitalized(): String {
+        return this.replaceFirstChar {
+            if (it.isLowerCase())
+                it.titlecase(Locale.getDefault())
+            else it.toString()
+        }
     }
 
     private fun fetchPokemonDetails(id: Int){

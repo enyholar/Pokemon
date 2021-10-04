@@ -86,21 +86,22 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
                 android:layout_height="wrap_content">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
-                    android:text="Height"
-                    android:textStyle="normal"
-                    android:layout_marginLeft="16dp"
-                    android:textSize="18sp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/height"
                     android:textColor="#83504E4E"
+                    android:textSize="18sp"
 
-                    android:layout_height="wrap_content"/>
+                    android:textStyle="normal" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_height"
                     android:layout_width="wrap_content"
-                    android:text="Height"
+
                     android:textStyle="normal"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="16dp"
@@ -117,7 +118,7 @@
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
-                    android:text="Species"
+                    android:text="@string/types"
                     android:textStyle="normal"
                     android:layout_marginLeft="16dp"
                     android:textSize="18sp"
@@ -129,7 +130,6 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_species"
                     android:layout_width="wrap_content"
-                    android:text="Height"
                     android:textStyle="normal"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="16dp"
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
-                    android:text="Weight"
+                    android:text="@string/weight"
                     android:textStyle="normal"
                     android:layout_marginLeft="16dp"
                     android:textSize="18sp"
@@ -157,7 +157,6 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_weight"
                     android:layout_width="wrap_content"
-                    android:text="Height"
                     android:textStyle="normal"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="16dp"
@@ -174,7 +173,7 @@
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
-                    android:text="Abilities"
+                    android:text="@string/abilities"
                     android:textStyle="normal"
                     android:layout_marginLeft="16dp"
                     android:textSize="18sp"
@@ -186,7 +185,6 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_abilities"
                     android:layout_width="wrap_content"
-                    android:text="Height"
                     android:textStyle="normal"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="16dp"
